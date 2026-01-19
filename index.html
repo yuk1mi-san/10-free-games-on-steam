@@ -128,26 +128,6 @@
     }
     .card h2{margin:0 0 8px;font-size:18px}
     .card p{margin:0;color:var(--muted)}
-    .warn{
-      margin-top:12px;
-      border-left:4px solid var(--warn);
-      background: rgba(251,191,36,.08);
-      padding:12px;
-      border-radius:12px;
-      border:1px solid rgba(251,191,36,.18);
-      color: var(--muted);
-    }
-    .warn b{color:var(--text)}
-    .pill{
-      display:inline-block;
-      margin:0 6px 6px 0;
-      padding:6px 10px;
-      border-radius:999px;
-      border:1px solid var(--border);
-      background: rgba(255,255,255,.03);
-      color:var(--muted);
-      font-size:13px;
-    }
 
     /* bullet list */
     .bullet{
@@ -174,6 +154,55 @@
       font-weight:800;
     }
     .credit-link:hover{opacity:.9}
+
+    /* product buttons */
+    .shop-grid{
+      margin-top:12px;
+      display:grid;
+      grid-template-columns:1fr;
+      gap:10px;
+    }
+    .shop-btn{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+      padding:12px 12px;
+      border-radius:14px;
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.03);
+      text-decoration:none;
+      color:var(--text);
+      box-shadow: 0 10px 22px rgba(0,0,0,.20);
+      transition: transform .08s ease, opacity .08s ease;
+    }
+    .shop-btn:hover{opacity:.95; transform: translateY(-1px);}
+    .shop-left{display:flex;align-items:flex-start;gap:10px;min-width:0}
+    .shop-ic{
+      width:34px;height:34px;border-radius:12px;
+      display:grid;place-items:center;
+      background: rgba(167,139,250,.14);
+      border:1px solid rgba(167,139,250,.25);
+      flex:0 0 auto;
+    }
+    .shop-text{min-width:0}
+    .shop-title{
+      font-weight:900;
+      line-height:1.15;
+      margin:0;
+      font-size:14.5px;
+    }
+    .shop-sub{
+      margin:4px 0 0;
+      color:var(--muted);
+      font-size:13px;
+      line-height:1.25;
+    }
+    .shop-go{
+      color: var(--accent2);
+      font-weight:900;
+      flex:0 0 auto;
+    }
 
     /* LIST */
     .list{margin-top:18px;display:grid;gap:14px}
@@ -296,8 +325,6 @@
             <p class="subtitle">Список бесплатных игр/страниц в Steam, которые могут увеличивать счётчик игр в профиле (значок количества игр).</p>
             <div class="meta">
               <span>Автор: <b>Yukimi2208</b></span>
-              <span>Источник: <b>FunPay</b></span>
-              <span>Формат: <b>GitHub Pages</b></span>
             </div>
           </div>
 
@@ -306,8 +333,6 @@
             <p class="subtitle">A list of free Steam games/pages that may increase your profile game count (the “number of games” badge).</p>
             <div class="meta">
               <span>Author: <b>Yukimi2208</b></span>
-              <span>Source: <b>FunPay</b></span>
-              <span>Format: <b>GitHub Pages</b></span>
             </div>
           </div>
         </div>
@@ -324,20 +349,113 @@
       </div>
 
       <div class="grid">
+        <!-- LEFT CARD REPLACED WITH YOUR SHOP -->
         <section class="card">
           <div data-lang="ru">
-            <h2>📋 Что это</h2>
-            <p>Это список из 16 позиций. Нажимай “Открыть в Steam” — откроется страница в Steam.</p>
-            <div class="warn"><b>⚠️ Внимание</b><br/>Если есть проблемы с активацией, это может быть связано с регионом/доступностью в Steam. Если регион Steam — Россия (рубли), часть игр может быть недоступна.</div>
+            <h2>🛒 Товары Юкими</h2>
+            <p>Быстрый переход к моим услугам на FunPay:</p>
+
+            <div class="shop-grid">
+              <!-- поменяешь ссылки на нужные страницы/товары -->
+              <a class="shop-btn" href="https://funpay.com/users/3472051/" target="_blank" rel="noopener">
+                <div class="shop-left">
+                  <div class="shop-ic">❤️</div>
+                  <div class="shop-text">
+                    <p class="shop-title">Лайки / реакции</p>
+                    <p class="shop-sub">Накрутка лайков/реакций под посты и активности</p>
+                  </div>
+                </div>
+                <div class="shop-go">→</div>
+              </a>
+
+              <a class="shop-btn" href="https://funpay.com/users/3472051/" target="_blank" rel="noopener">
+                <div class="shop-left">
+                  <div class="shop-ic">💬</div>
+                  <div class="shop-text">
+                    <p class="shop-title">Комментарии</p>
+                    <p class="shop-sub">Живые/оформленные комментарии под посты</p>
+                  </div>
+                </div>
+                <div class="shop-go">→</div>
+              </a>
+
+              <a class="shop-btn" href="https://funpay.com/users/3472051/" target="_blank" rel="noopener">
+                <div class="shop-left">
+                  <div class="shop-ic">⭐</div>
+                  <div class="shop-text">
+                    <p class="shop-title">Лайки на обзоры</p>
+                    <p class="shop-sub">Поддержка ваших отзывов/обзоров в Steam</p>
+                  </div>
+                </div>
+                <div class="shop-go">→</div>
+              </a>
+
+              <a class="shop-btn" href="https://funpay.com/users/3472051/" target="_blank" rel="noopener">
+                <div class="shop-left">
+                  <div class="shop-ic">📌</div>
+                  <div class="shop-text">
+                    <p class="shop-title">Все товары / профиль</p>
+                    <p class="shop-sub">Открыть мою страницу FunPay целиком</p>
+                  </div>
+                </div>
+                <div class="shop-go">→</div>
+              </a>
+            </div>
           </div>
 
           <div data-lang="en">
-            <h2>📋 What this is</h2>
-            <p>This is a list of 16 items. Click “Open on Steam” to open the Steam store page.</p>
-            <div class="warn"><b>⚠️ Warning</b><br/>If you can’t activate/claim something, it may be region/availability related. Some items may be unavailable in certain Steam regions.</div>
+            <h2>🛒 Yukimi’s Services</h2>
+            <p>Quick links to my FunPay offers:</p>
+
+            <div class="shop-grid">
+              <a class="shop-btn" href="https://funpay.com/users/3472051/" target="_blank" rel="noopener">
+                <div class="shop-left">
+                  <div class="shop-ic">❤️</div>
+                  <div class="shop-text">
+                    <p class="shop-title">Likes / reactions</p>
+                    <p class="shop-sub">Boost likes/reactions for posts & activity</p>
+                  </div>
+                </div>
+                <div class="shop-go">→</div>
+              </a>
+
+              <a class="shop-btn" href="https://funpay.com/users/3472051/" target="_blank" rel="noopener">
+                <div class="shop-left">
+                  <div class="shop-ic">💬</div>
+                  <div class="shop-text">
+                    <p class="shop-title">Comments</p>
+                    <p class="shop-sub">Nice-looking comments for your posts</p>
+                  </div>
+                </div>
+                <div class="shop-go">→</div>
+              </a>
+
+              <a class="shop-btn" href="https://funpay.com/users/3472051/" target="_blank" rel="noopener">
+                <div class="shop-left">
+                  <div class="shop-ic">⭐</div>
+                  <div class="shop-text">
+                    <p class="shop-title">Review likes</p>
+                    <p class="shop-sub">Support your Steam reviews with likes</p>
+                  </div>
+                </div>
+                <div class="shop-go">→</div>
+              </a>
+
+              <a class="shop-btn" href="https://funpay.com/users/3472051/" target="_blank" rel="noopener">
+                <div class="shop-left">
+                  <div class="shop-ic">📌</div>
+                  <div class="shop-text">
+                    <p class="shop-title">All offers / profile</p>
+                    <p class="shop-sub">Open my FunPay profile</p>
+                  </div>
+                </div>
+                <div class="shop-go">→</div>
+              </a>
+            </div>
           </div>
         </section>
 
+        <!-- RIGHT CARD (kept) -->
         <aside class="card">
           <div data-lang="ru">
             <h2>✨ Купленный товар</h2>
