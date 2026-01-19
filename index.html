@@ -149,7 +149,7 @@
       font-size:13px;
     }
 
-    /* bullet list for "Purchased product" (looks better in RU) */
+    /* bullet list */
     .bullet{
       list-style:none;
       padding:0;
@@ -234,10 +234,8 @@
       object-fit:contain;
     }
 
-    /* bottom "Telegraph style" info */
-    .bottom-note{
-      margin-top:24px;
-    }
+    /* bottom note */
+    .bottom-note{ margin-top:22px; }
     .center-title{
       text-align:center;
       font-weight:900;
@@ -260,11 +258,13 @@
     .note-line b{color:var(--text)}
     .ps{
       color:var(--muted);
-      margin:0 0 18px;
+      margin:22px 0 0;
       text-align:center;
+      font-size:14px;
+      opacity:.95;
     }
 
-    .footer{margin-top:22px;color:var(--muted);font-size:14px;text-align:center;opacity:.95}
+    .footer{margin-top:18px;color:var(--muted);font-size:14px;text-align:center;opacity:.95}
 
     /* i18n blocks */
     [data-lang]{display:none}
@@ -338,7 +338,6 @@
           </div>
         </section>
 
-        <!-- "Purchased product" -->
         <aside class="card">
           <div data-lang="ru">
             <h2>✨ Купленный товар</h2>
@@ -461,15 +460,9 @@
       </div></div><div class="shot-wrap"><img class="shot" src="assets/thumbs/16.png" alt="Tell Me Why screenshot" loading="lazy"></div></div>
     </main>
 
-    <div class="footer">
-  <span data-lang="ru">✨ P.S. Надеюсь, большинство игр было успешно активировано и вы удовлетворены результатом 😊</span>
-  <span data-lang="en">✨ P.S. Hope most items worked 😊</span>
-</div>
-
-    <!-- BOTTOM TEXT (added) -->
+    <!-- BOTTOM TEXT -->
     <section class="card bottom-note">
       <div data-lang="ru">
-
         <h3 class="center-title">⚠️ ВНИМАНИЕ ⚠️</h3>
         <div class="note-lines">
           <div class="note-line"><span class="ic">❗</span><span>Если есть проблемы с активацией игры — это может быть проблемы с регионом, вы можете попробовать использовать <b>VPN</b> ❗</span></div>
@@ -491,14 +484,11 @@
           <div class="note-line"><span class="ic">💤</span><span>Обычно я доступен с 16:00 до 23:00 💤</span></div>
           <div class="note-line"><span class="ic">💤</span><span>Если вы пишете в другое время, то, скорее всего, я отвечу позже. 💤</span></div>
         </div>
+
+        <p class="ps">✨ P.S. Надеюсь, большинство игр было успешно активировано и вы удовлетворены результатом 😊</p>
       </div>
 
-      <!-- PS AFTER GAMES -->
-
-
       <div data-lang="en">
-      
-
         <h3 class="center-title">⚠️ WARNING ⚠️</h3>
         <div class="note-lines">
           <div class="note-line"><span class="ic">❗</span><span>If you have issues activating an item, it may be region-related. You can try using a <b>VPN</b> ❗</span></div>
@@ -520,6 +510,8 @@
           <div class="note-line"><span class="ic">💤</span><span>Usually I’m available from 16:00 to 23:00 💤</span></div>
           <div class="note-line"><span class="ic">💤</span><span>If you message me outside that time, I’ll most likely reply later. 💤</span></div>
         </div>
+
+        <p class="ps">✨ P.S. Hope most items worked 😊</p>
       </div>
     </section>
 
@@ -553,6 +545,7 @@
   </script>
 </body>
 </html>
+
 
 
 
