@@ -24,12 +24,9 @@
     }
     .wrap{max-width:980px;margin:0 auto;padding:28px 18px 60px}
 
+    /* HERO (без фон-картинки) */
     .hero{
-      background-image:
-        linear-gradient(135deg, rgba(167,139,250,.14), rgba(34,211,238,.10)),
-        url("assets/hero.jpg");
-      background-size:cover;
-      background-position:center;
+      background: linear-gradient(135deg, rgba(167,139,250,.14), rgba(34,211,238,.10));
       border:1px solid var(--border);
       box-shadow: var(--shadow);
       border-radius:22px;
@@ -37,9 +34,6 @@
       position:relative;
       overflow:hidden;
     }
-
-    
-
 
     .topbar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;justify-content:space-between}
     .badge{
@@ -79,6 +73,40 @@
     .subtitle{margin:0;color:var(--muted)}
     .meta{margin-top:14px;display:flex;flex-wrap:wrap;gap:10px;color:var(--muted);font-size:14px}
     .meta b{color:var(--text);font-weight:600}
+
+    /* Новый блок: текст + hero-картинка справа */
+    .hero-head{
+      display:grid;
+      grid-template-columns: 1.25fr .75fr;
+      gap:16px;
+      margin-top:10px;
+      align-items:start;
+    }
+    @media (max-width:880px){
+      .hero-head{grid-template-columns:1fr}
+    }
+
+    .hero-img-card{
+      background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
+      border:1px solid var(--border);
+      border-radius:18px;
+      padding:12px;
+      box-shadow: var(--shadow);
+    }
+    .hero-img-card img{
+      width:100%;
+      height:auto;
+      display:block;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(0,0,0,.25);
+      object-fit:contain; /* фулл видно */
+    }
+    .hero-img-caption{
+      margin-top:10px;
+      font-size:13px;
+      color:var(--muted);
+    }
 
     .grid{display:grid;grid-template-columns: 1.2fr .8fr;gap:16px;margin-top:16px}
     @media (max-width:880px){ .grid{grid-template-columns:1fr} }
@@ -161,9 +189,7 @@
     .it-link:hover{opacity:.9}
 
     /* Full visible image (no crop) */
-    .shot-wrap{
-      padding: 0 14px 14px;
-    }
+    .shot-wrap{ padding: 0 14px 14px; }
     .shot{
       width:100%;
       height:auto;
@@ -171,7 +197,7 @@
       border-radius:14px;
       border:1px solid rgba(255,255,255,.10);
       background: rgba(0,0,0,.25);
-      object-fit: contain; /* key: do not crop */
+      object-fit: contain;
     }
 
     .footer{margin-top:24px;color:var(--muted);font-size:14px;text-align:center;opacity:.95}
@@ -197,23 +223,36 @@
         </div>
       </div>
 
-      <div data-lang="ru">
-        <h1>✨ 16 игр, дающих +1 к значку “Игры” Steam</h1>
-        <p class="subtitle">Список бесплатных игр/страниц в Steam, которые могут увеличивать счётчик игр в профиле (значок количества игр).</p>
-        <div class="meta">
-          <span>Автор: <b>Yukimi2208</b></span>
-          <span>Источник: <b>FunPay</b></span>
-          <span>Формат: <b>GitHub Pages</b></span>
-        </div>
-      </div>
+      <!-- ТЕКСТ + КАРТИНКА СПРАВА -->
+      <div class="hero-head">
+        <div>
+          <div data-lang="ru">
+            <h1>✨ 16 игр, дающих +1 к значку “Игры” Steam</h1>
+            <p class="subtitle">Список бесплатных игр/страниц в Steam, которые могут увеличивать счётчик игр в профиле (значок количества игр).</p>
+            <div class="meta">
+              <span>Автор: <b>Yukimi2208</b></span>
+              <span>Источник: <b>FunPay</b></span>
+              <span>Формат: <b>GitHub Pages</b></span>
+            </div>
+          </div>
 
-      <div data-lang="en">
-        <h1>✨ 16 Steam items that may add +1 to the “Games” badge</h1>
-        <p class="subtitle">A list of free Steam games/pages that may increase your profile game count (the “number of games” badge).</p>
-        <div class="meta">
-          <span>Author: <b>Yukimi2208</b></span>
-          <span>Source: <b>FunPay</b></span>
-          <span>Format: <b>GitHub Pages</b></span>
+          <div data-lang="en">
+            <h1>✨ 16 Steam items that may add +1 to the “Games” badge</h1>
+            <p class="subtitle">A list of free Steam games/pages that may increase your profile game count (the “number of games” badge).</p>
+            <div class="meta">
+              <span>Author: <b>Yukimi2208</b></span>
+              <span>Source: <b>FunPay</b></span>
+              <span>Format: <b>GitHub Pages</b></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-img-card">
+          <img src="assets/hero.jpg" alt="Steam badge example" loading="lazy">
+          <div class="hero-img-caption">
+            <span data-lang="ru">Пример значка/счётчика игр.</span>
+            <span data-lang="en">Example of the badge/game count.</span>
+          </div>
         </div>
       </div>
 
@@ -257,9 +296,8 @@
     </header>
 
     <main class="list" aria-label="Games list">
-
-      <!-- Helper: each item uses image assets/thumbs/N.png -->
-
+      <!-- ВАЖНО: тут я поменял .png -> .jpg -->
+      <!-- 1 -->
       <div class="item">
         <div class="row">
           <div class="num">1</div>
@@ -270,11 +308,10 @@
             </a>
           </div>
         </div>
-        <div class="shot-wrap">
-          <img class="shot" src="assets/thumbs/1.png" alt="The Archotek Project screenshot" loading="lazy">
-        </div>
+        <div class="shot-wrap"><img class="shot" src="assets/thumbs/1.jpg" alt="The Archotek Project screenshot" loading="lazy"></div>
       </div>
 
+      <!-- 2 -->
       <div class="item">
         <div class="row">
           <div class="num">2</div>
@@ -285,11 +322,10 @@
             </a>
           </div>
         </div>
-        <div class="shot-wrap">
-          <img class="shot" src="assets/thumbs/2.png" alt="The Descendant screenshot" loading="lazy">
-        </div>
+        <div class="shot-wrap"><img class="shot" src="assets/thumbs/2.jpg" alt="The Descendant screenshot" loading="lazy"></div>
       </div>
 
+      <!-- 3 -->
       <div class="item">
         <div class="row">
           <div class="num">3</div>
@@ -300,11 +336,10 @@
             </a>
           </div>
         </div>
-        <div class="shot-wrap">
-          <img class="shot" src="assets/thumbs/3.png" alt="Odysseus Kosmos screenshot" loading="lazy">
-        </div>
+        <div class="shot-wrap"><img class="shot" src="assets/thumbs/3.jpg" alt="Odysseus Kosmos screenshot" loading="lazy"></div>
       </div>
 
+      <!-- 4 -->
       <div class="item">
         <div class="row">
           <div class="num">4</div>
@@ -315,11 +350,10 @@
             </a>
           </div>
         </div>
-        <div class="shot-wrap">
-          <img class="shot" src="assets/thumbs/4.png" alt="Romance of the Three Kingdoms Maker screenshot" loading="lazy">
-        </div>
+        <div class="shot-wrap"><img class="shot" src="assets/thumbs/4.jpg" alt="Romance of the Three Kingdoms Maker screenshot" loading="lazy"></div>
       </div>
 
+      <!-- 5 -->
       <div class="item">
         <div class="row">
           <div class="num">5</div>
@@ -330,11 +364,10 @@
             </a>
           </div>
         </div>
-        <div class="shot-wrap">
-          <img class="shot" src="assets/thumbs/5.png" alt="RACE 07 DLC screenshot" loading="lazy">
-        </div>
+        <div class="shot-wrap"><img class="shot" src="assets/thumbs/5.jpg" alt="RACE 07 DLC screenshot" loading="lazy"></div>
       </div>
 
+      <!-- 6 -->
       <div class="item">
         <div class="row">
           <div class="num">6</div>
@@ -345,11 +378,10 @@
             </a>
           </div>
         </div>
-        <div class="shot-wrap">
-          <img class="shot" src="assets/thumbs/6.png" alt="Penumbra: Necrologue screenshot" loading="lazy">
-        </div>
+        <div class="shot-wrap"><img class="shot" src="assets/thumbs/6.jpg" alt="Penumbra: Necrologue screenshot" loading="lazy"></div>
       </div>
 
+      <!-- 7 -->
       <div class="item">
         <div class="row">
           <div class="num">7</div>
@@ -360,11 +392,10 @@
             </a>
           </div>
         </div>
-        <div class="shot-wrap">
-          <img class="shot" src="assets/thumbs/7.png" alt="Serena screenshot" loading="lazy">
-        </div>
+        <div class="shot-wrap"><img class="shot" src="assets/thumbs/7.jpg" alt="Serena screenshot" loading="lazy"></div>
       </div>
 
+      <!-- 8 -->
       <div class="item">
         <div class="row">
           <div class="num">8</div>
@@ -375,11 +406,10 @@
             </a>
           </div>
         </div>
-        <div class="shot-wrap">
-          <img class="shot" src="assets/thumbs/8.png" alt="Captain Spirit screenshot" loading="lazy">
-        </div>
+        <div class="shot-wrap"><img class="shot" src="assets/thumbs/8.jpg" alt="Captain Spirit screenshot" loading="lazy"></div>
       </div>
 
+      <!-- 9 -->
       <div class="item">
         <div class="row">
           <div class="num">9</div>
@@ -390,11 +420,10 @@
             </a>
           </div>
         </div>
-        <div class="shot-wrap">
-          <img class="shot" src="assets/thumbs/9.png" alt="AX:EL - Air XenoDawn screenshot" loading="lazy">
-        </div>
+        <div class="shot-wrap"><img class="shot" src="assets/thumbs/9.jpg" alt="AX:EL - Air XenoDawn screenshot" loading="lazy"></div>
       </div>
 
+      <!-- 10 -->
       <div class="item">
         <div class="row">
           <div class="num">10</div>
@@ -405,11 +434,10 @@
             </a>
           </div>
         </div>
-        <div class="shot-wrap">
-          <img class="shot" src="assets/thumbs/10.png" alt="Artifact screenshot" loading="lazy">
-        </div>
+        <div class="shot-wrap"><img class="shot" src="assets/thumbs/10.jpg" alt="Artifact screenshot" loading="lazy"></div>
       </div>
 
+      <!-- 11 -->
       <div class="item">
         <div class="row">
           <div class="num">11</div>
@@ -420,11 +448,10 @@
             </a>
           </div>
         </div>
-        <div class="shot-wrap">
-          <img class="shot" src="assets/thumbs/11.png" alt="Artifact Foundry screenshot" loading="lazy">
-        </div>
+        <div class="shot-wrap"><img class="shot" src="assets/thumbs/11.jpg" alt="Artifact Foundry screenshot" loading="lazy"></div>
       </div>
 
+      <!-- 12 -->
       <div class="item">
         <div class="row">
           <div class="num">12</div>
@@ -435,11 +462,10 @@
             </a>
           </div>
         </div>
-        <div class="shot-wrap">
-          <img class="shot" src="assets/thumbs/12.png" alt="POSTAL screenshot" loading="lazy">
-        </div>
+        <div class="shot-wrap"><img class="shot" src="assets/thumbs/12.jpg" alt="POSTAL screenshot" loading="lazy"></div>
       </div>
 
+      <!-- 13 -->
       <div class="item">
         <div class="row">
           <div class="num">13</div>
@@ -450,11 +476,10 @@
             </a>
           </div>
         </div>
-        <div class="shot-wrap">
-          <img class="shot" src="assets/thumbs/13.png" alt="Capcom Arcade Stadium screenshot" loading="lazy">
-        </div>
+        <div class="shot-wrap"><img class="shot" src="assets/thumbs/13.jpg" alt="Capcom Arcade Stadium screenshot" loading="lazy"></div>
       </div>
 
+      <!-- 14 -->
       <div class="item">
         <div class="row">
           <div class="num">14</div>
@@ -465,11 +490,10 @@
             </a>
           </div>
         </div>
-        <div class="shot-wrap">
-          <img class="shot" src="assets/thumbs/14.png" alt="Life is Strange 2 screenshot" loading="lazy">
-        </div>
+        <div class="shot-wrap"><img class="shot" src="assets/thumbs/14.jpg" alt="Life is Strange 2 screenshot" loading="lazy"></div>
       </div>
 
+      <!-- 15 -->
       <div class="item">
         <div class="row">
           <div class="num">15</div>
@@ -480,11 +504,10 @@
             </a>
           </div>
         </div>
-        <div class="shot-wrap">
-          <img class="shot" src="assets/thumbs/15.png" alt="Capcom Arcade 2nd Stadium screenshot" loading="lazy">
-        </div>
+        <div class="shot-wrap"><img class="shot" src="assets/thumbs/15.jpg" alt="Capcom Arcade 2nd Stadium screenshot" loading="lazy"></div>
       </div>
 
+      <!-- 16 -->
       <div class="item">
         <div class="row">
           <div class="num">16</div>
@@ -495,11 +518,8 @@
             </a>
           </div>
         </div>
-        <div class="shot-wrap">
-          <img class="shot" src="assets/thumbs/16.png" alt="Tell Me Why screenshot" loading="lazy">
-        </div>
+        <div class="shot-wrap"><img class="shot" src="assets/thumbs/16.jpg" alt="Tell Me Why screenshot" loading="lazy"></div>
       </div>
-
     </main>
 
     <div class="footer">
@@ -532,6 +552,7 @@
   </script>
 </body>
 </html>
+
 
 
 
