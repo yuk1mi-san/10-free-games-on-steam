@@ -8,80 +8,56 @@
 
   <style>
     :root{
-      --bg:#0b0f17;
-      --panel: rgba(17,24,39,.72);
-      --panel2: rgba(15,23,42,.72);
-      --text:#e5e7eb;
-      --muted:#9ca3af;
-      --border: rgba(255,255,255,.10);
-      --shadow: 0 18px 60px rgba(0,0,0,.45);
-      --shadow2: 0 10px 30px rgba(0,0,0,.35);
-      --accent:#a78bfa;
-      --accent2:#22d3ee;
-      --warn:#fbbf24;
+      --bg:#0b0f17; --card:#111827; --card2:#0f172a; --text:#e5e7eb; --muted:#9ca3af;
+      --accent:#a78bfa; --accent2:#22d3ee; --warn:#fbbf24; --border:rgba(255,255,255,.08);
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
     }
-
     *{box-sizing:border-box}
-    html,body{height:100%}
     body{
       margin:0;
       font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Helvetica Neue", sans-serif;
+      background: radial-gradient(1200px 600px at 20% 0%, rgba(167,139,250,.18), transparent 60%),
+                  radial-gradient(900px 500px at 90% 10%, rgba(34,211,238,.14), transparent 55%),
+                  var(--bg);
       color:var(--text);
-      background:
-        radial-gradient(1200px 700px at 20% -10%, rgba(167,139,250,.22), transparent 60%),
-        radial-gradient(900px 600px at 90% 0%, rgba(34,211,238,.18), transparent 55%),
-        linear-gradient(180deg, #070a10, var(--bg));
       line-height:1.55;
     }
+    .wrap{max-width:980px;margin:0 auto;padding:28px 18px 60px}
 
-    .wrap{max-width:1100px;margin:0 auto;padding:26px 16px 70px}
-
-    /* HERO */
     .hero{
-      border:1px solid var(--border);
-      border-radius:24px;
-      padding:18px 18px 16px;
-      box-shadow: var(--shadow);
-      background:
-        linear-gradient(135deg, rgba(167,139,250,.18), rgba(34,211,238,.10)),
+      background-image:
+        linear-gradient(135deg, rgba(167,139,250,.14), rgba(34,211,238,.10)),
         url("assets/hero.png");
       background-size:cover;
       background-position:center;
-      overflow:hidden;
+      border:1px solid var(--border);
+      box-shadow: var(--shadow);
+      border-radius:22px;
+      padding:22px 20px;
       position:relative;
+      overflow:hidden;
     }
-    .hero::after{
-      content:"";
-      position:absolute; inset:0;
-      background: linear-gradient(90deg, rgba(0,0,0,.55), rgba(0,0,0,.25) 55%, rgba(0,0,0,.55));
-      pointer-events:none;
-    }
-    .hero > *{position:relative; z-index:1}
 
     .topbar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;justify-content:space-between}
-
     .badge{
       display:inline-flex;gap:10px;align-items:center;
       padding:8px 12px;border-radius:999px;
       border:1px solid var(--border);
-      background: rgba(0,0,0,.25);
+      background: rgba(255,255,255,.04);
       color:var(--muted);
       font-size:14px;
-      backdrop-filter: blur(10px);
     }
-    .dot{
+    .badge .dot{
       width:10px;height:10px;border-radius:50%;
       background: linear-gradient(135deg, var(--accent), var(--accent2));
-      box-shadow: 0 0 0 4px rgba(167,139,250,.18);
+      box-shadow: 0 0 0 4px rgba(167,139,250,.14);
     }
-
     .lang{
       display:inline-flex;
       border:1px solid var(--border);
       border-radius:999px;
-      background: rgba(0,0,0,.25);
+      background: rgba(255,255,255,.04);
       overflow:hidden;
-      backdrop-filter: blur(10px);
     }
     .lang button{
       cursor:pointer;
@@ -93,103 +69,71 @@
     }
     .lang button.active{
       color: var(--text);
-      background: rgba(167,139,250,.22);
+      background: rgba(167,139,250,.16);
     }
 
-    h1{margin:12px 0 6px; font-size:28px; letter-spacing:.2px}
-    .subtitle{margin:0; color:rgba(229,231,235,.82); max-width:780px}
+    h1{margin:12px 0 8px;font-size:28px}
+    .subtitle{margin:0;color:var(--muted)}
+    .meta{margin-top:14px;display:flex;flex-wrap:wrap;gap:10px;color:var(--muted);font-size:14px}
+    .meta b{color:var(--text);font-weight:600}
 
-    .meta{
-      margin-top:10px;
-      display:flex; flex-wrap:wrap; gap:10px;
-      color:rgba(156,163,175,.95);
-      font-size:14px;
-    }
-    .meta b{color:var(--text); font-weight:650}
-
-    /* Top info cards */
-    .grid{
-      display:grid;
-      grid-template-columns: 1.2fr .8fr;
-      gap:14px;
-      margin-top:14px;
-    }
-    @media (max-width:900px){ .grid{grid-template-columns:1fr} }
+    .grid{display:grid;grid-template-columns: 1.2fr .8fr;gap:16px;margin-top:16px}
+    @media (max-width:880px){ .grid{grid-template-columns:1fr} }
 
     .card{
-      background: linear-gradient(180deg, rgba(17,24,39,.75), rgba(15,23,42,.55));
+      background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
       border:1px solid var(--border);
       border-radius:18px;
-      padding:14px;
-      box-shadow: var(--shadow2);
-      backdrop-filter: blur(10px);
+      padding:16px;
+      box-shadow: var(--shadow);
     }
-    .card h2{margin:0 0 8px; font-size:16px}
-    .card p{margin:0; color:rgba(156,163,175,.95)}
-
+    .card h2{margin:0 0 8px;font-size:18px}
+    .card p{margin:0;color:var(--muted)}
     .warn{
-      margin-top:10px;
+      margin-top:12px;
       border-left:4px solid var(--warn);
-      background: rgba(251,191,36,.10);
-      padding:10px 12px;
+      background: rgba(251,191,36,.08);
+      padding:12px;
       border-radius:12px;
       border:1px solid rgba(251,191,36,.18);
-      color: rgba(229,231,235,.85);
+      color: var(--muted);
     }
+    .warn b{color:var(--text)}
     .pill{
-      display:inline-flex; align-items:center; gap:8px;
-      margin:0 6px 8px 0;
+      display:inline-block;
+      margin:0 6px 6px 0;
       padding:6px 10px;
       border-radius:999px;
       border:1px solid var(--border);
-      background: rgba(255,255,255,.04);
-      color:rgba(156,163,175,.95);
+      background: rgba(255,255,255,.03);
+      color:var(--muted);
       font-size:13px;
     }
 
     /* LIST */
-    .list{
-      margin-top:16px;
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap:12px;
-    }
-    @media (max-width:900px){ .list{grid-template-columns:1fr} }
+    .list{margin-top:18px;display:grid;gap:14px}
 
     .item{
-      display:flex;
-      gap:12px;
-      align-items:center;
-      padding:12px;
       border-radius:18px;
       border:1px solid var(--border);
-      background: linear-gradient(180deg, rgba(17,24,39,.78), rgba(15,23,42,.62));
-      box-shadow: var(--shadow2);
-      backdrop-filter: blur(10px);
-      transition: transform .12s ease, border-color .12s ease, box-shadow .12s ease;
-    }
-    .item:hover{
-      transform: translateY(-2px);
-      border-color: rgba(34,211,238,.35);
-      box-shadow: 0 22px 55px rgba(0,0,0,.45);
+      background: linear-gradient(180deg, rgba(17,24,39,.8), rgba(15,23,42,.8));
+      box-shadow: var(--shadow);
+      overflow:hidden;
     }
 
-    .thumb{
-      width:160px;
-      height:90px;
-      border-radius:14px;
-      border:1px solid rgba(255,255,255,.12);
-      object-fit:cover;
-      flex:0 0 auto;
-      background: rgba(0,0,0,.25);
+    .row{
+      display:flex;
+      align-items:flex-start;
+      gap:12px;
+      padding:14px 14px 10px;
     }
 
     .num{
-      width:34px; height:34px;
-      border-radius:12px;
-      display:grid; place-items:center;
-      background: rgba(167,139,250,.18);
+      min-width:36px;height:36px;border-radius:12px;
+      display:grid;place-items:center;
+      background: rgba(167,139,250,.12);
       border:1px solid rgba(167,139,250,.25);
+      color: var(--text);
       font-weight:800;
       flex:0 0 auto;
     }
@@ -197,50 +141,39 @@
     .it-body{flex:1; min-width:0}
     .it-title{
       margin:0;
-      font-weight:750;
-      font-size:15px;
+      font-weight:800;
+      font-size:16px;
       line-height:1.25;
+      word-wrap:break-word;
     }
-    .it-sub{
-      margin:6px 0 0;
-      color: rgba(156,163,175,.95);
-      font-size:13px;
-      display:flex;
-      align-items:center;
-      gap:10px;
-      flex-wrap:wrap;
-    }
-
-    .btn{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      padding:8px 12px;
-      border-radius:12px;
-      border:1px solid rgba(34,211,238,.35);
-      background: rgba(34,211,238,.10);
-      color: var(--text);
+    .it-link{
+      display:inline-block;
+      margin-top:8px;
+      color: var(--accent2);
       text-decoration:none;
-      font-weight:650;
-      font-size:13px;
-      transition: opacity .12s ease, transform .12s ease;
-      white-space:nowrap;
+      border-bottom:1px dashed rgba(34,211,238,.55);
+      padding-bottom:2px;
+      font-weight:600;
     }
-    .btn:hover{opacity:.95; transform: translateY(-1px)}
-    .btn .icon{
-      width:10px; height:10px; border-radius:50%;
-      background: linear-gradient(135deg, var(--accent), var(--accent2));
-      box-shadow: 0 0 0 4px rgba(34,211,238,.10);
+    .it-link:hover{opacity:.9}
+
+    /* Full visible image (no crop) */
+    .shot-wrap{
+      padding: 0 14px 14px;
+    }
+    .shot{
+      width:100%;
+      height:auto;
+      display:block;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(0,0,0,.25);
+      object-fit: contain; /* key: do not crop */
     }
 
-    .footer{
-      margin-top:22px;
-      color: rgba(156,163,175,.95);
-      text-align:center;
-      font-size:14px;
-    }
+    .footer{margin-top:24px;color:var(--muted);font-size:14px;text-align:center;opacity:.95}
 
-    /* i18n */
+    /* i18n blocks */
     [data-lang]{display:none}
     body.lang-ru [data-lang="ru"]{display:inline}
     body.lang-en [data-lang="en"]{display:inline}
@@ -253,9 +186,7 @@
   <div class="wrap">
     <header class="hero">
       <div class="topbar">
-        <div class="badge"><span class="dot"></span>
-          <span data-lang="ru">Обновлено: 06 декабря 2025</span><span data-lang="en">Updated: December 06, 2025</span>
-        </div>
+        <div class="badge"><span class="dot"></span> <span data-lang="ru">Обновлено: 06 декабря 2025</span><span data-lang="en">Updated: December 06, 2025</span></div>
 
         <div class="lang" role="tablist" aria-label="Language switch">
           <button id="btn-ru" class="active" type="button" aria-selected="true">RU</button>
@@ -265,7 +196,7 @@
 
       <div data-lang="ru">
         <h1>✨ 16 игр, дающих +1 к значку “Игры” Steam</h1>
-        <p class="subtitle">Кликаешь на кнопку — открывается Steam. Добавляй в аккаунт (доступность зависит от региона).</p>
+        <p class="subtitle">Список бесплатных игр/страниц в Steam, которые могут увеличивать счётчик игр в профиле (значок количества игр).</p>
         <div class="meta">
           <span>Автор: <b>Yukimi2208</b></span>
           <span>Источник: <b>FunPay</b></span>
@@ -275,7 +206,7 @@
 
       <div data-lang="en">
         <h1>✨ 16 Steam items that may add +1 to the “Games” badge</h1>
-        <p class="subtitle">Click the button to open Steam. Availability depends on your region.</p>
+        <p class="subtitle">A list of free Steam games/pages that may increase your profile game count (the “number of games” badge).</p>
         <div class="meta">
           <span>Author: <b>Yukimi2208</b></span>
           <span>Source: <b>FunPay</b></span>
@@ -287,22 +218,23 @@
         <section class="card">
           <div data-lang="ru">
             <h2>📋 Что это</h2>
-            <p>Список из 16 позиций. Некоторые могут быть недоступны в отдельных регионах.</p>
-            <div class="warn"><b>⚠️ Внимание</b><br/>Если Steam-регион Россия (рубли) — часть игр может не открываться/не добавляться.</div>
+            <p>Это список из 16 позиций. Нажимай “Открыть в Steam” — откроется страница в Steam.</p>
+            <div class="warn"><b>⚠️ Внимание</b><br/>Если есть проблемы с активацией, это может быть связано с регионом/доступностью в Steam. Если регион Steam — Россия (рубли), часть игр может быть недоступна.</div>
           </div>
+
           <div data-lang="en">
             <h2>📋 What this is</h2>
-            <p>A list of 16 items. Some can be unavailable depending on your Steam region.</p>
-            <div class="warn"><b>⚠️ Warning</b><br/>If an item can’t be claimed, it’s usually a region/availability issue.</div>
+            <p>This is a list of 16 items. Click “Open on Steam” to open the Steam store page.</p>
+            <div class="warn"><b>⚠️ Warning</b><br/>If you can’t activate/claim something, it may be region/availability related. Some items may be unavailable in certain Steam regions.</div>
           </div>
         </section>
 
         <aside class="card">
           <div data-lang="ru">
             <h2>🎀 Подсказки</h2>
-            <p style="margin-bottom:10px">Можешь дописать заметки: “работает/не работает/чем заменить”.</p>
+            <p style="margin-bottom:10px">Сюда можно добавлять заметки: “что сработало”, “что не сработало”, “чем заменить”.</p>
             <div>
-              <span class="pill">🖤 Бесплатные</span>
+              <span class="pill">🖤 Бесплатные позиции</span>
               <span class="pill">🎮 +1 к счётчику</span>
               <span class="pill">🔗 Прямые ссылки</span>
             </div>
@@ -310,9 +242,9 @@
 
           <div data-lang="en">
             <h2>🎀 Notes</h2>
-            <p style="margin-bottom:10px">Add notes: “works / doesn’t work / alternatives”.</p>
+            <p style="margin-bottom:10px">You can add notes here later: “worked”, “didn’t work”, “alternatives”, etc.</p>
             <div>
-              <span class="pill">🖤 Free</span>
+              <span class="pill">🖤 Free items</span>
               <span class="pill">🎮 +1 count</span>
               <span class="pill">🔗 Direct links</span>
             </div>
@@ -322,202 +254,254 @@
     </header>
 
     <main class="list" aria-label="Games list">
-      <!-- 1 -->
+
+      <!-- Helper: each item uses image assets/thumbs/N.png -->
+
       <div class="item">
-        <img class="thumb" src="assets/thumbs/1.png" alt="The Archotek Project" loading="lazy">
-        <div class="num">1</div>
-        <div class="it-body">
-          <p class="it-title">The Archotek Project</p>
-          <div class="it-sub">
-            <a class="btn" href="https://store.steampowered.com/app/608990/The_Archotek_Project/" target="_blank" rel="noopener"><span class="icon"></span><span data-lang="ru">Открыть Steam</span><span data-lang="en">Open Steam</span></a>
+        <div class="row">
+          <div class="num">1</div>
+          <div class="it-body">
+            <p class="it-title">The Archotek Project</p>
+            <a class="it-link" href="https://store.steampowered.com/app/608990/The_Archotek_Project/" target="_blank" rel="noopener">
+              <span data-lang="ru">Открыть в Steam</span><span data-lang="en">Open on Steam</span>
+            </a>
           </div>
+        </div>
+        <div class="shot-wrap">
+          <img class="shot" src="assets/thumbs/1.png" alt="The Archotek Project screenshot" loading="lazy">
         </div>
       </div>
 
-      <!-- 2 -->
       <div class="item">
-        <img class="thumb" src="assets/thumbs/2.png" alt="The Descendant" loading="lazy">
-        <div class="num">2</div>
-        <div class="it-body">
-          <p class="it-title">The Descendant</p>
-          <div class="it-sub">
-            <a class="btn" href="https://store.steampowered.com/app/351940/The_Descendant/" target="_blank" rel="noopener"><span class="icon"></span><span data-lang="ru">Открыть Steam</span><span data-lang="en">Open Steam</span></a>
+        <div class="row">
+          <div class="num">2</div>
+          <div class="it-body">
+            <p class="it-title">The Descendant</p>
+            <a class="it-link" href="https://store.steampowered.com/app/351940/The_Descendant/" target="_blank" rel="noopener">
+              <span data-lang="ru">Открыть в Steam</span><span data-lang="en">Open on Steam</span>
+            </a>
           </div>
+        </div>
+        <div class="shot-wrap">
+          <img class="shot" src="assets/thumbs/2.png" alt="The Descendant screenshot" loading="lazy">
         </div>
       </div>
 
-      <!-- 3 -->
       <div class="item">
-        <img class="thumb" src="assets/thumbs/3.png" alt="Odysseus Kosmos and his Robot Quest - Episode 1" loading="lazy">
-        <div class="num">3</div>
-        <div class="it-body">
-          <p class="it-title">Odysseus Kosmos and his Robot Quest - Episode 1</p>
-          <div class="it-sub">
-            <a class="btn" href="https://store.steampowered.com/app/769920/Odysseus_Kosmos_and_his_Robot_Quest_Episode_1/" target="_blank" rel="noopener"><span class="icon"></span><span data-lang="ru">Открыть Steam</span><span data-lang="en">Open Steam</span></a>
+        <div class="row">
+          <div class="num">3</div>
+          <div class="it-body">
+            <p class="it-title">Odysseus Kosmos and his Robot Quest - Episode 1</p>
+            <a class="it-link" href="https://store.steampowered.com/app/769920/Odysseus_Kosmos_and_his_Robot_Quest_Episode_1/" target="_blank" rel="noopener">
+              <span data-lang="ru">Открыть в Steam</span><span data-lang="en">Open on Steam</span>
+            </a>
           </div>
+        </div>
+        <div class="shot-wrap">
+          <img class="shot" src="assets/thumbs/3.png" alt="Odysseus Kosmos screenshot" loading="lazy">
         </div>
       </div>
 
-      <!-- 4 -->
       <div class="item">
-        <img class="thumb" src="assets/thumbs/4.png" alt="Romance of the Three Kingdoms Maker" loading="lazy">
-        <div class="num">4</div>
-        <div class="it-body">
-          <p class="it-title">Romance of the Three Kingdoms Maker</p>
-          <div class="it-sub">
-            <a class="btn" href="https://store.steampowered.com/app/397720/Romance_of_the_Three_Kingdoms_Maker/" target="_blank" rel="noopener"><span class="icon"></span><span data-lang="ru">Открыть Steam</span><span data-lang="en">Open Steam</span></a>
+        <div class="row">
+          <div class="num">4</div>
+          <div class="it-body">
+            <p class="it-title">Romance of the Three Kingdoms Maker</p>
+            <a class="it-link" href="https://store.steampowered.com/app/397720/Romance_of_the_Three_Kingdoms_Maker/" target="_blank" rel="noopener">
+              <span data-lang="ru">Открыть в Steam</span><span data-lang="en">Open on Steam</span>
+            </a>
           </div>
+        </div>
+        <div class="shot-wrap">
+          <img class="shot" src="assets/thumbs/4.png" alt="Romance of the Three Kingdoms Maker screenshot" loading="lazy">
         </div>
       </div>
 
-      <!-- 5 -->
       <div class="item">
-        <img class="thumb" src="assets/thumbs/5.png" alt="RACE 07: Andy Priaulx Crowne Plaza Raceway (Free DLC)" loading="lazy">
-        <div class="num">5</div>
-        <div class="it-body">
-          <p class="it-title">RACE 07: Andy Priaulx Crowne Plaza Raceway (Free DLC)</p>
-          <div class="it-sub">
-            <a class="btn" href="https://store.steampowered.com/app/8650/RACE_07_Andy_Priaulx_Crowne_Plaza_Raceway_Free_DLC/" target="_blank" rel="noopener"><span class="icon"></span><span data-lang="ru">Открыть Steam</span><span data-lang="en">Open Steam</span></a>
+        <div class="row">
+          <div class="num">5</div>
+          <div class="it-body">
+            <p class="it-title">RACE 07: Andy Priaulx Crowne Plaza Raceway (Free DLC)</p>
+            <a class="it-link" href="https://store.steampowered.com/app/8650/RACE_07_Andy_Priaulx_Crowne_Plaza_Raceway_Free_DLC/" target="_blank" rel="noopener">
+              <span data-lang="ru">Открыть в Steam</span><span data-lang="en">Open on Steam</span>
+            </a>
           </div>
+        </div>
+        <div class="shot-wrap">
+          <img class="shot" src="assets/thumbs/5.png" alt="RACE 07 DLC screenshot" loading="lazy">
         </div>
       </div>
 
-      <!-- 6 -->
       <div class="item">
-        <img class="thumb" src="assets/thumbs/6.png" alt="Penumbra: Necrologue" loading="lazy">
-        <div class="num">6</div>
-        <div class="it-body">
-          <p class="it-title">Penumbra: Necrologue</p>
-          <div class="it-sub">
-            <a class="btn" href="https://store.steampowered.com/app/346290/Penumbra_Necrologue/" target="_blank" rel="noopener"><span class="icon"></span><span data-lang="ru">Открыть Steam</span><span data-lang="en">Open Steam</span></a>
+        <div class="row">
+          <div class="num">6</div>
+          <div class="it-body">
+            <p class="it-title">Penumbra: Necrologue</p>
+            <a class="it-link" href="https://store.steampowered.com/app/346290/Penumbra_Necrologue/" target="_blank" rel="noopener">
+              <span data-lang="ru">Открыть в Steam</span><span data-lang="en">Open on Steam</span>
+            </a>
           </div>
+        </div>
+        <div class="shot-wrap">
+          <img class="shot" src="assets/thumbs/6.png" alt="Penumbra: Necrologue screenshot" loading="lazy">
         </div>
       </div>
 
-      <!-- 7 -->
       <div class="item">
-        <img class="thumb" src="assets/thumbs/7.png" alt="Serena" loading="lazy">
-        <div class="num">7</div>
-        <div class="it-body">
-          <p class="it-title">Serena</p>
-          <div class="it-sub">
-            <a class="btn" href="https://store.steampowered.com/app/272060/Serena/" target="_blank" rel="noopener"><span class="icon"></span><span data-lang="ru">Открыть Steam</span><span data-lang="en">Open Steam</span></a>
+        <div class="row">
+          <div class="num">7</div>
+          <div class="it-body">
+            <p class="it-title">Serena</p>
+            <a class="it-link" href="https://store.steampowered.com/app/272060/Serena/" target="_blank" rel="noopener">
+              <span data-lang="ru">Открыть в Steam</span><span data-lang="en">Open on Steam</span>
+            </a>
           </div>
+        </div>
+        <div class="shot-wrap">
+          <img class="shot" src="assets/thumbs/7.png" alt="Serena screenshot" loading="lazy">
         </div>
       </div>
 
-      <!-- 8 -->
       <div class="item">
-        <img class="thumb" src="assets/thumbs/8.png" alt="The Awesome Adventures of Captain Spirit" loading="lazy">
-        <div class="num">8</div>
-        <div class="it-body">
-          <p class="it-title">The Awesome Adventures of Captain Spirit</p>
-          <div class="it-sub">
-            <a class="btn" href="https://store.steampowered.com/app/845070/The_Awesome_Adventures_of_Captain_Spirit/" target="_blank" rel="noopener"><span class="icon"></span><span data-lang="ru">Открыть Steam</span><span data-lang="en">Open Steam</span></a>
+        <div class="row">
+          <div class="num">8</div>
+          <div class="it-body">
+            <p class="it-title">The Awesome Adventures of Captain Spirit</p>
+            <a class="it-link" href="https://store.steampowered.com/app/845070/The_Awesome_Adventures_of_Captain_Spirit/" target="_blank" rel="noopener">
+              <span data-lang="ru">Открыть в Steam</span><span data-lang="en">Open on Steam</span>
+            </a>
           </div>
+        </div>
+        <div class="shot-wrap">
+          <img class="shot" src="assets/thumbs/8.png" alt="Captain Spirit screenshot" loading="lazy">
         </div>
       </div>
 
-      <!-- 9 -->
       <div class="item">
-        <img class="thumb" src="assets/thumbs/9.png" alt="AX:EL - Air XenoDawn" loading="lazy">
-        <div class="num">9</div>
-        <div class="it-body">
-          <p class="it-title">AX:EL - Air XenoDawn</p>
-          <div class="it-sub">
-            <a class="btn" href="https://store.steampowered.com/app/319830/AXEL__Air_XenoDawn/" target="_blank" rel="noopener"><span class="icon"></span><span data-lang="ru">Открыть Steam</span><span data-lang="en">Open Steam</span></a>
+        <div class="row">
+          <div class="num">9</div>
+          <div class="it-body">
+            <p class="it-title">AX:EL - Air XenoDawn</p>
+            <a class="it-link" href="https://store.steampowered.com/app/319830/AXEL__Air_XenoDawn/" target="_blank" rel="noopener">
+              <span data-lang="ru">Открыть в Steam</span><span data-lang="en">Open on Steam</span>
+            </a>
           </div>
+        </div>
+        <div class="shot-wrap">
+          <img class="shot" src="assets/thumbs/9.png" alt="AX:EL - Air XenoDawn screenshot" loading="lazy">
         </div>
       </div>
 
-      <!-- 10 -->
       <div class="item">
-        <img class="thumb" src="assets/thumbs/10.png" alt="Artifact" loading="lazy">
-        <div class="num">10</div>
-        <div class="it-body">
-          <p class="it-title">Artifact</p>
-          <div class="it-sub">
-            <a class="btn" href="https://store.steampowered.com/app/583950/Artifact/" target="_blank" rel="noopener"><span class="icon"></span><span data-lang="ru">Открыть Steam</span><span data-lang="en">Open Steam</span></a>
+        <div class="row">
+          <div class="num">10</div>
+          <div class="it-body">
+            <p class="it-title">Artifact</p>
+            <a class="it-link" href="https://store.steampowered.com/app/583950/Artifact/" target="_blank" rel="noopener">
+              <span data-lang="ru">Открыть в Steam</span><span data-lang="en">Open on Steam</span>
+            </a>
           </div>
+        </div>
+        <div class="shot-wrap">
+          <img class="shot" src="assets/thumbs/10.png" alt="Artifact screenshot" loading="lazy">
         </div>
       </div>
 
-      <!-- 11 -->
       <div class="item">
-        <img class="thumb" src="assets/thumbs/11.png" alt="Artifact Foundry" loading="lazy">
-        <div class="num">11</div>
-        <div class="it-body">
-          <p class="it-title">Artifact Foundry</p>
-          <div class="it-sub">
-            <a class="btn" href="https://store.steampowered.com/app/583950/Artifact/" target="_blank" rel="noopener"><span class="icon"></span><span data-lang="ru">Открыть Steam</span><span data-lang="en">Open Steam</span></a>
+        <div class="row">
+          <div class="num">11</div>
+          <div class="it-body">
+            <p class="it-title">Artifact Foundry</p>
+            <a class="it-link" href="https://store.steampowered.com/app/583950/Artifact/" target="_blank" rel="noopener">
+              <span data-lang="ru">Открыть в Steam</span><span data-lang="en">Open on Steam</span>
+            </a>
           </div>
+        </div>
+        <div class="shot-wrap">
+          <img class="shot" src="assets/thumbs/11.png" alt="Artifact Foundry screenshot" loading="lazy">
         </div>
       </div>
 
-      <!-- 12 -->
       <div class="item">
-        <img class="thumb" src="assets/thumbs/12.png" alt="POSTAL" loading="lazy">
-        <div class="num">12</div>
-        <div class="it-body">
-          <p class="it-title">POSTAL</p>
-          <div class="it-sub">
-            <a class="btn" href="https://store.steampowered.com/app/232770/POSTAL/" target="_blank" rel="noopener"><span class="icon"></span><span data-lang="ru">Открыть Steam</span><span data-lang="en">Open Steam</span></a>
+        <div class="row">
+          <div class="num">12</div>
+          <div class="it-body">
+            <p class="it-title">POSTAL</p>
+            <a class="it-link" href="https://store.steampowered.com/app/232770/POSTAL/" target="_blank" rel="noopener">
+              <span data-lang="ru">Открыть в Steam</span><span data-lang="en">Open on Steam</span>
+            </a>
           </div>
+        </div>
+        <div class="shot-wrap">
+          <img class="shot" src="assets/thumbs/12.png" alt="POSTAL screenshot" loading="lazy">
         </div>
       </div>
 
-      <!-- 13 -->
       <div class="item">
-        <img class="thumb" src="assets/thumbs/13.png" alt="Capcom Arcade Stadium" loading="lazy">
-        <div class="num">13</div>
-        <div class="it-body">
-          <p class="it-title">Capcom Arcade Stadium</p>
-          <div class="it-sub">
-            <a class="btn" href="https://store.steampowered.com/app/1515950/Capcom_Arcade_Stadium/" target="_blank" rel="noopener"><span class="icon"></span><span data-lang="ru">Открыть Steam</span><span data-lang="en">Open Steam</span></a>
+        <div class="row">
+          <div class="num">13</div>
+          <div class="it-body">
+            <p class="it-title">Capcom Arcade Stadium</p>
+            <a class="it-link" href="https://store.steampowered.com/app/1515950/Capcom_Arcade_Stadium/" target="_blank" rel="noopener">
+              <span data-lang="ru">Открыть в Steam</span><span data-lang="en">Open on Steam</span>
+            </a>
           </div>
+        </div>
+        <div class="shot-wrap">
+          <img class="shot" src="assets/thumbs/13.png" alt="Capcom Arcade Stadium screenshot" loading="lazy">
         </div>
       </div>
 
-      <!-- 14 -->
       <div class="item">
-        <img class="thumb" src="assets/thumbs/14.png" alt="Life is Strange 2" loading="lazy">
-        <div class="num">14</div>
-        <div class="it-body">
-          <p class="it-title">Life is Strange 2</p>
-          <div class="it-sub">
-            <a class="btn" href="https://store.steampowered.com/app/532210/Life_is_Strange_2/" target="_blank" rel="noopener"><span class="icon"></span><span data-lang="ru">Открыть Steam</span><span data-lang="en">Open Steam</span></a>
+        <div class="row">
+          <div class="num">14</div>
+          <div class="it-body">
+            <p class="it-title">Life is Strange 2</p>
+            <a class="it-link" href="https://store.steampowered.com/app/532210/Life_is_Strange_2/" target="_blank" rel="noopener">
+              <span data-lang="ru">Открыть в Steam</span><span data-lang="en">Open on Steam</span>
+            </a>
           </div>
+        </div>
+        <div class="shot-wrap">
+          <img class="shot" src="assets/thumbs/14.png" alt="Life is Strange 2 screenshot" loading="lazy">
         </div>
       </div>
 
-      <!-- 15 -->
       <div class="item">
-        <img class="thumb" src="assets/thumbs/15.png" alt="Capcom Arcade 2nd Stadium" loading="lazy">
-        <div class="num">15</div>
-        <div class="it-body">
-          <p class="it-title">Capcom Arcade 2nd Stadium</p>
-          <div class="it-sub">
-            <a class="btn" href="https://store.steampowered.com/app/1755910/Capcom_Arcade_2nd_Stadium/" target="_blank" rel="noopener"><span class="icon"></span><span data-lang="ru">Открыть Steam</span><span data-lang="en">Open Steam</span></a>
+        <div class="row">
+          <div class="num">15</div>
+          <div class="it-body">
+            <p class="it-title">Capcom Arcade 2nd Stadium</p>
+            <a class="it-link" href="https://store.steampowered.com/app/1755910/Capcom_Arcade_2nd_Stadium/" target="_blank" rel="noopener">
+              <span data-lang="ru">Открыть в Steam</span><span data-lang="en">Open on Steam</span>
+            </a>
           </div>
+        </div>
+        <div class="shot-wrap">
+          <img class="shot" src="assets/thumbs/15.png" alt="Capcom Arcade 2nd Stadium screenshot" loading="lazy">
         </div>
       </div>
 
-      <!-- 16 -->
       <div class="item">
-        <img class="thumb" src="assets/thumbs/16.png" alt="Tell Me Why" loading="lazy">
-        <div class="num">16</div>
-        <div class="it-body">
-          <p class="it-title">Tell Me Why</p>
-          <div class="it-sub">
-            <a class="btn" href="https://store.steampowered.com/app/1180660/Tell_Me_Why/" target="_blank" rel="noopener"><span class="icon"></span><span data-lang="ru">Открыть Steam</span><span data-lang="en">Open Steam</span></a>
+        <div class="row">
+          <div class="num">16</div>
+          <div class="it-body">
+            <p class="it-title">Tell Me Why</p>
+            <a class="it-link" href="https://store.steampowered.com/app/1180660/Tell_Me_Why/" target="_blank" rel="noopener">
+              <span data-lang="ru">Открыть в Steam</span><span data-lang="en">Open on Steam</span>
+            </a>
           </div>
         </div>
+        <div class="shot-wrap">
+          <img class="shot" src="assets/thumbs/16.png" alt="Tell Me Why screenshot" loading="lazy">
+        </div>
       </div>
+
     </main>
 
     <div class="footer">
-      <span data-lang="ru">P.S. Надеюсь, большинство игр успешно активировалось 😊</span>
-      <span data-lang="en">P.S. Hope most items worked 😊</span>
+      <span data-lang="ru">P.S. Надеюсь, большинство игр успешно активировалось и ты доволен результатом 😊</span>
+      <span data-lang="en">P.S. Hope most items worked and you’re happy with the result 😊</span>
     </div>
   </div>
 
@@ -545,6 +529,7 @@
   </script>
 </body>
 </html>
+
 
 
 
