@@ -149,6 +149,32 @@
       font-size:13px;
     }
 
+    /* bullet list for "Purchased product" (looks better in RU) */
+    .bullet{
+      list-style:none;
+      padding:0;
+      margin:10px 0 0;
+      display:grid;
+      gap:10px;
+      color:var(--muted);
+    }
+    .bullet li{
+      display:flex;
+      gap:10px;
+      align-items:flex-start;
+      line-height:1.35;
+    }
+    .bullet .ic{width:18px;flex:0 0 18px;opacity:.95}
+    .bullet b{color:var(--text)}
+    .credit-link{
+      color: var(--accent2);
+      text-decoration:none;
+      border-bottom:1px dashed rgba(34,211,238,.55);
+      padding-bottom:2px;
+      font-weight:800;
+    }
+    .credit-link:hover{opacity:.9}
+
     /* LIST */
     .list{margin-top:18px;display:grid;gap:14px}
 
@@ -192,7 +218,7 @@
       text-decoration:none;
       border-bottom:1px dashed rgba(34,211,238,.55);
       padding-bottom:2px;
-      font-weight:600;
+      font-weight:700;
     }
     .it-link:hover{opacity:.9}
 
@@ -208,7 +234,37 @@
       object-fit:contain;
     }
 
-    .footer{margin-top:24px;color:var(--muted);font-size:14px;text-align:center;opacity:.95}
+    /* bottom "Telegraph style" info */
+    .bottom-note{
+      margin-top:24px;
+    }
+    .center-title{
+      text-align:center;
+      font-weight:900;
+      letter-spacing:.4px;
+      margin:0 0 12px;
+    }
+    .note-lines{
+      color:var(--muted);
+      margin:0;
+      display:grid;
+      gap:10px;
+      line-height:1.45;
+    }
+    .note-line{
+      display:flex;
+      gap:10px;
+      align-items:flex-start;
+    }
+    .note-line .ic{width:18px;flex:0 0 18px}
+    .note-line b{color:var(--text)}
+    .ps{
+      color:var(--muted);
+      margin:0 0 18px;
+      text-align:center;
+    }
+
+    .footer{margin-top:22px;color:var(--muted);font-size:14px;text-align:center;opacity:.95}
 
     /* i18n blocks */
     [data-lang]{display:none}
@@ -216,24 +272,6 @@
     body.lang-en [data-lang="en"]{display:inline}
     body.lang-ru div[data-lang="ru"]{display:block}
     body.lang-en div[data-lang="en"]{display:block}
-
-    /* bullet list (used in Purchased Product card) */
-    .bullet{
-      margin:10px 0 0;
-      padding:0;
-      list-style:none;
-      display:grid;
-      gap:8px;
-      color:var(--muted);
-    }
-    .bullet li{
-      display:flex;
-      gap:10px;
-      align-items:flex-start;
-    }
-    .bullet .ic{flex:0 0 auto; width:18px; text-align:center; opacity:.95}
-    .bullet b{color:var(--text)}
-    .card h2{line-height:1.2}
   </style>
 </head>
 
@@ -300,7 +338,7 @@
           </div>
         </section>
 
-        <!-- REPLACED: product text instead of tips -->
+        <!-- "Purchased product" -->
         <aside class="card">
           <div data-lang="ru">
             <h2>✨ Купленный товар</h2>
@@ -308,7 +346,15 @@
               <li><span class="ic">📋</span><span>Это список из <b>16 игр</b></span></li>
               <li><span class="ic">🖤</span><span>Бесплатные игры, которые могут дать <b>+1</b> к библиотеке профиля Steam</span></li>
               <li><span class="ic">🎀</span><span>Работает для значка профиля Steam (значок количества игр)</span></li>
-              <li><span class="ic">📋</span><span>Сделал <b>Yukimi2208</b> / <b>FunPay</b></span></li>
+              <li>
+                <span class="ic">📋</span>
+                <span>
+                  Сделал
+                  <a class="credit-link" href="https://funpay.com/users/3472051/" target="_blank" rel="noopener">
+                    Yukimi2208 / FunPay
+                  </a>
+                </span>
+              </li>
             </ul>
           </div>
 
@@ -318,7 +364,15 @@
               <li><span class="ic">📋</span><span>This is a list of <b>16 items</b></span></li>
               <li><span class="ic">🖤</span><span>Free Steam items that may add <b>+1</b> to your profile game count</span></li>
               <li><span class="ic">🎀</span><span>Works for the Steam profile “Games” badge (game count)</span></li>
-              <li><span class="ic">📋</span><span>List created by <b>Yukimi2208</b> / <b>FunPay</b></span></li>
+              <li>
+                <span class="ic">📋</span>
+                <span>
+                  List created by
+                  <a class="credit-link" href="https://funpay.com/users/3472051/" target="_blank" rel="noopener">
+                    Yukimi2208 / FunPay
+                  </a>
+                </span>
+              </li>
             </ul>
           </div>
         </aside>
@@ -326,7 +380,6 @@
     </header>
 
     <main class="list" aria-label="Games list">
-      <!-- thumbs PNG -->
       <!-- 1 -->
       <div class="item"><div class="row"><div class="num">1</div><div class="it-body"><p class="it-title">The Archotek Project</p>
         <a class="it-link" href="https://store.steampowered.com/app/608990/The_Archotek_Project/" target="_blank" rel="noopener"><span data-lang="ru">Открыть в Steam</span><span data-lang="en">Open on Steam</span></a>
@@ -408,36 +461,64 @@
       </div></div><div class="shot-wrap"><img class="shot" src="assets/thumbs/16.png" alt="Tell Me Why screenshot" loading="lazy"></div></div>
     </main>
 
-    <!-- MOVED: tips to bottom -->
-    <section class="card" style="margin-top:24px">
+    <!-- BOTTOM TEXT (added) -->
+    <section class="card bottom-note">
       <div data-lang="ru">
-        <h2>🎀 Подсказки</h2>
-        <p style="margin-bottom:10px">
-          Сюда можно добавлять заметки: “что сработало”, “что не сработало”, “чем заменить”.
-        </p>
-        <div>
-          <span class="pill">🖤 Бесплатные позиции</span>
-          <span class="pill">🎮 +1 к счётчику</span>
-          <span class="pill">🔗 Прямые ссылки</span>
+        <p class="ps">P.S. Надеюсь, большинство игр было успешно активировано и вы удовлетворены результатом 😊</p>
+
+        <h3 class="center-title">⚠️ ВНИМАНИЕ ⚠️</h3>
+        <div class="note-lines">
+          <div class="note-line"><span class="ic">❗</span><span>Если есть проблемы с активацией игры — это может быть проблемы с регионом, вы можете попробовать использовать <b>VPN</b> ❗</span></div>
+          <div class="note-line"><span class="ic">❗</span><span>Если у вас в Steam установлен регион <b>Россия</b> (рубли), то часть игр может быть недоступна. Поэтому я <b>не рекомендую</b> этот товар, если у вас выбран этот регион в стиме ❗</span></div>
+
+          <div class="note-line"><span class="ic">✨</span><span><b>Актуальный список игр</b></span></div>
+          <div class="note-line"><span class="ic">🎀</span><span>Список состоит из 16 игр, которые вы сможете активировать для значка стим. Если есть вопросы — пишите ^^</span></div>
+
+          <div class="note-line">
+            <span class="ic">📌</span>
+            <span>
+              Список сделал
+              <a class="credit-link" href="https://funpay.com/users/3472051/" target="_blank" rel="noopener">
+                Пользователь Yukimi2208 / FunPay
+              </a>
+            </span>
+          </div>
+
+          <div class="note-line"><span class="ic">💤</span><span>Обычно я доступен с 16:00 до 23:00 💤</span></div>
+          <div class="note-line"><span class="ic">💤</span><span>Если вы пишете в другое время, то, скорее всего, я отвечу позже. 💤</span></div>
         </div>
       </div>
 
       <div data-lang="en">
-        <h2>🎀 Notes</h2>
-        <p style="margin-bottom:10px">
-          You can add notes here later: “worked”, “didn’t work”, “alternatives”, etc.
-        </p>
-        <div>
-          <span class="pill">🖤 Free items</span>
-          <span class="pill">🎮 +1 count</span>
-          <span class="pill">🔗 Direct links</span>
+        <p class="ps">P.S. Hope most items worked and you’re happy with the result 😊</p>
+
+        <h3 class="center-title">⚠️ WARNING ⚠️</h3>
+        <div class="note-lines">
+          <div class="note-line"><span class="ic">❗</span><span>If you have issues activating an item, it may be region-related. You can try using a <b>VPN</b> ❗</span></div>
+          <div class="note-line"><span class="ic">❗</span><span>If your Steam region is set to <b>Russia</b> (RUB), some items may be unavailable. I <b>do not recommend</b> this product for that region ❗</span></div>
+
+          <div class="note-line"><span class="ic">✨</span><span><b>Current game list</b></span></div>
+          <div class="note-line"><span class="ic">🎀</span><span>This list contains 16 items you can try to activate for the Steam “Games” badge. If you have questions — message me ^^</span></div>
+
+          <div class="note-line">
+            <span class="ic">📌</span>
+            <span>
+              List created by
+              <a class="credit-link" href="https://funpay.com/users/3472051/" target="_blank" rel="noopener">
+                Yukimi2208 / FunPay
+              </a>
+            </span>
+          </div>
+
+          <div class="note-line"><span class="ic">💤</span><span>Usually I’m available from 16:00 to 23:00 💤</span></div>
+          <div class="note-line"><span class="ic">💤</span><span>If you message me outside that time, I’ll most likely reply later. 💤</span></div>
         </div>
       </div>
     </section>
 
     <div class="footer">
-      <span data-lang="ru">P.S. Надеюсь, большинство игр успешно активировалось и ты доволен результатом 😊</span>
-      <span data-lang="en">P.S. Hope most items worked and you’re happy with the result 😊</span>
+      <span data-lang="ru">✨ Steam +1 Games List • Yukimi2208</span>
+      <span data-lang="en">✨ Steam +1 Games List • Yukimi2208</span>
     </div>
   </div>
 
@@ -465,6 +546,7 @@
   </script>
 </body>
 </html>
+
 
 
 
