@@ -30,7 +30,7 @@
       border:1px solid var(--border);
       box-shadow: var(--shadow);
       border-radius:22px;
-      padding:18px 18px; /* чуть компактнее */
+      padding:18px 18px;
       overflow:hidden;
     }
 
@@ -73,10 +73,10 @@
     .meta{margin-top:10px;display:flex;flex-wrap:wrap;gap:10px;color:var(--muted);font-size:14px}
     .meta b{color:var(--text);font-weight:600}
 
-    /* текст + hero-картинка справа (уменьшена) */
+    /* текст + hero-картинка справа */
     .hero-head{
       display:grid;
-      grid-template-columns: 1.35fr .65fr; /* меньше места под картинку */
+      grid-template-columns: 1.35fr .65fr;
       gap:14px;
       margin-top:10px;
       align-items:start;
@@ -91,28 +91,24 @@
       border-radius:16px;
       padding:10px;
       box-shadow: var(--shadow);
-      max-width: 320px;      /* ограничиваем размер */
-      justify-self: end;      /* прижать вправо */
+      max-width: 320px;
+      justify-self: end;
     }
     @media (max-width:900px){
       .hero-img-card{max-width: 100%; justify-self: stretch;}
     }
 
     .hero-img-card img{
-  width:100%;
-  height:140px;              /* можешь 130-160 подобрать */
-  display:block;
-  border-radius:12px;
-  border:1px solid rgba(255,255,255,.10);
-
-  /* убираем “бары” */
-  object-fit: cover;          /* ключ */
-  object-position: center;    /* центр */
-  background: transparent;
-
-  /* чтобы выглядело мягче */
-  box-shadow: 0 10px 25px rgba(0,0,0,.25);
-}
+      width:100%;
+      height:140px;
+      display:block;
+      border-radius:12px;
+      border:1px solid rgba(255,255,255,.10);
+      object-fit: cover;
+      object-position: center;
+      background: transparent;
+      box-shadow: 0 10px 25px rgba(0,0,0,.25);
+    }
 
     .hero-img-caption{
       margin-top:8px;
@@ -261,7 +257,9 @@
         </div>
 
         <div class="hero-img-card">
-          <img src="assets/hero.jpg" alt="Steam badge example" loading="lazy">
+          <a href="assets/hero.jpg" target="_blank" rel="noopener" style="display:block">
+            <img src="assets/hero.jpg" alt="Steam badge example" loading="lazy">
+          </a>
           <div class="hero-img-caption">
             <span data-lang="ru">Пример значка/счётчика игр.</span>
             <span data-lang="en">Example of the badge/game count.</span>
@@ -284,25 +282,26 @@
           </div>
         </section>
 
+        <!-- REPLACED: product text instead of tips -->
         <aside class="card">
           <div data-lang="ru">
-            <h2>🎀 Подсказки</h2>
-            <p style="margin-bottom:10px">Сюда можно добавлять заметки: “что сработало”, “что не сработало”, “чем заменить”.</p>
-            <div>
-              <span class="pill">🖤 Бесплатные позиции</span>
-              <span class="pill">🎮 +1 к счётчику</span>
-              <span class="pill">🔗 Прямые ссылки</span>
-            </div>
+            <h2>✨ Купленый Товар Покупателем✨</h2>
+            <p>
+              📋 Это список из <b>16 игр</b> 📋<br><br>
+              🖤 Список бесплатных игр, дающих <b>+1</b> к библиотеке профиля Steam<br><br>
+              🎀 Работает для значка профиля Steam (значка количества игр).<br><br>
+              📋 Список сделал Пользователь <b>Yukimi2208</b> / <b>FunPay</b>
+            </p>
           </div>
 
           <div data-lang="en">
-            <h2>🎀 Notes</h2>
-            <p style="margin-bottom:10px">You can add notes here later: “worked”, “didn’t work”, “alternatives”, etc.</p>
-            <div>
-              <span class="pill">🖤 Free items</span>
-              <span class="pill">🎮 +1 count</span>
-              <span class="pill">🔗 Direct links</span>
-            </div>
+            <h2>✨ Purchased Product ✨</h2>
+            <p>
+              📋 This is a list of <b>16 items</b> 📋<br><br>
+              🖤 Free Steam items that may add <b>+1</b> to your profile game count<br><br>
+              🎀 Works for the Steam profile “Games” badge (game count).<br><br>
+              📋 List created by <b>Yukimi2208</b> / <b>FunPay</b>
+            </p>
           </div>
         </aside>
       </div>
@@ -389,8 +388,34 @@
       <div class="item"><div class="row"><div class="num">16</div><div class="it-body"><p class="it-title">Tell Me Why</p>
         <a class="it-link" href="https://store.steampowered.com/app/1180660/Tell_Me_Why/" target="_blank" rel="noopener"><span data-lang="ru">Открыть в Steam</span><span data-lang="en">Open on Steam</span></a>
       </div></div><div class="shot-wrap"><img class="shot" src="assets/thumbs/16.png" alt="Tell Me Why screenshot" loading="lazy"></div></div>
-
     </main>
+
+    <!-- MOVED: tips to bottom -->
+    <section class="card" style="margin-top:24px">
+      <div data-lang="ru">
+        <h2>🎀 Подсказки</h2>
+        <p style="margin-bottom:10px">
+          Сюда можно добавлять заметки: “что сработало”, “что не сработало”, “чем заменить”.
+        </p>
+        <div>
+          <span class="pill">🖤 Бесплатные позиции</span>
+          <span class="pill">🎮 +1 к счётчику</span>
+          <span class="pill">🔗 Прямые ссылки</span>
+        </div>
+      </div>
+
+      <div data-lang="en">
+        <h2>🎀 Notes</h2>
+        <p style="margin-bottom:10px">
+          You can add notes here later: “worked”, “didn’t work”, “alternatives”, etc.
+        </p>
+        <div>
+          <span class="pill">🖤 Free items</span>
+          <span class="pill">🎮 +1 count</span>
+          <span class="pill">🔗 Direct links</span>
+        </div>
+      </div>
+    </section>
 
     <div class="footer">
       <span data-lang="ru">P.S. Надеюсь, большинство игр успешно активировалось и ты доволен результатом 😊</span>
@@ -422,6 +447,7 @@
   </script>
 </body>
 </html>
+
 
 
 
