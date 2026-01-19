@@ -99,14 +99,21 @@
     }
 
     .hero-img-card img{
-      width:100%;
-      height:120px;          /* фикс высота => компактнее */
-      display:block;
-      border-radius:12px;
-      border:1px solid rgba(255,255,255,.10);
-      background: rgba(0,0,0,.25);
-      object-fit:contain;     /* целиком видно */
-    }
+  width:100%;
+  height:140px;              /* можешь 130-160 подобрать */
+  display:block;
+  border-radius:12px;
+  border:1px solid rgba(255,255,255,.10);
+
+  /* убираем “бары” */
+  object-fit: cover;          /* ключ */
+  object-position: center;    /* центр */
+  background: transparent;
+
+  /* чтобы выглядело мягче */
+  box-shadow: 0 10px 25px rgba(0,0,0,.25);
+}
+
     .hero-img-caption{
       margin-top:8px;
       font-size:12px;
