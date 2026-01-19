@@ -23,8 +23,14 @@
       line-height:1.55;
     }
     .wrap{max-width:980px;margin:0 auto;padding:28px 18px 60px}
+
+    /* HERO + banner image */
     .hero{
-      background: linear-gradient(135deg, rgba(167,139,250,.14), rgba(34,211,238,.10));
+      background-image:
+        linear-gradient(135deg, rgba(167,139,250,.14), rgba(34,211,238,.10)),
+        url("assets/hero.png");
+      background-size: cover;
+      background-position: center;
       border:1px solid var(--border);
       box-shadow: var(--shadow);
       border-radius:22px;
@@ -32,6 +38,7 @@
       position:relative;
       overflow:hidden;
     }
+
     .topbar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;justify-content:space-between}
     .badge{
       display:inline-flex;gap:10px;align-items:center;
@@ -106,11 +113,23 @@
 
     .list{margin-top:18px;display:grid;gap:12px}
     .item{
-      display:flex;gap:12px;align-items:flex-start;
+      display:flex;gap:12px;align-items:center;
       padding:14px;border-radius:16px;
       border:1px solid var(--border);
       background: linear-gradient(180deg, rgba(17,24,39,.8), rgba(15,23,42,.8));
     }
+
+    /* thumbs */
+    .thumb{
+      width:72px;
+      height:72px;
+      border-radius:14px;
+      border:1px solid var(--border);
+      object-fit:cover;
+      flex:0 0 auto;
+      box-shadow: var(--shadow);
+    }
+
     .num{
       min-width:36px;height:36px;border-radius:12px;
       display:grid;place-items:center;
@@ -118,6 +137,7 @@
       border:1px solid rgba(167,139,250,.25);
       color: var(--text);
       font-weight:700;
+      flex:0 0 auto;
     }
     .it-body{flex:1}
     .it-title{margin:0;font-weight:700}
@@ -133,8 +153,11 @@
 
     /* i18n blocks */
     [data-lang]{display:none}
-    body.lang-ru [data-lang="ru"]{display:block}
-    body.lang-en [data-lang="en"]{display:block}
+    body.lang-ru [data-lang="ru"]{display:inline}
+    body.lang-en [data-lang="en"]{display:inline}
+    /* for block elements inside language containers */
+    body.lang-ru div[data-lang="ru"]{display:block}
+    body.lang-en div[data-lang="en"]{display:block}
   </style>
 </head>
 
@@ -210,8 +233,10 @@
     </header>
 
     <main class="list" aria-label="Games list">
+
       <!-- 1 -->
       <div class="item">
+        <img class="thumb" src="assets/thumbs/1.png" alt="The Archotek Project" loading="lazy">
         <div class="num">1</div>
         <div class="it-body">
           <p class="it-title">The Archotek Project</p>
@@ -223,6 +248,7 @@
 
       <!-- 2 -->
       <div class="item">
+        <img class="thumb" src="assets/thumbs/2.png" alt="The Descendant" loading="lazy">
         <div class="num">2</div>
         <div class="it-body">
           <p class="it-title">The Descendant</p>
@@ -234,6 +260,7 @@
 
       <!-- 3 -->
       <div class="item">
+        <img class="thumb" src="assets/thumbs/3.png" alt="Odysseus Kosmos and his Robot Quest - Episode 1" loading="lazy">
         <div class="num">3</div>
         <div class="it-body">
           <p class="it-title">Odysseus Kosmos and his Robot Quest - Episode 1</p>
@@ -245,6 +272,7 @@
 
       <!-- 4 -->
       <div class="item">
+        <img class="thumb" src="assets/thumbs/4.png" alt="Romance of the Three Kingdoms Maker" loading="lazy">
         <div class="num">4</div>
         <div class="it-body">
           <p class="it-title">Romance of the Three Kingdoms Maker</p>
@@ -256,6 +284,7 @@
 
       <!-- 5 -->
       <div class="item">
+        <img class="thumb" src="assets/thumbs/5.png" alt="RACE 07: Andy Priaulx Crowne Plaza Raceway (Free DLC)" loading="lazy">
         <div class="num">5</div>
         <div class="it-body">
           <p class="it-title">RACE 07: Andy Priaulx Crowne Plaza Raceway (Free DLC)</p>
@@ -267,6 +296,7 @@
 
       <!-- 6 -->
       <div class="item">
+        <img class="thumb" src="assets/thumbs/6.png" alt="Penumbra: Necrologue" loading="lazy">
         <div class="num">6</div>
         <div class="it-body">
           <p class="it-title">Penumbra: Necrologue</p>
@@ -278,6 +308,7 @@
 
       <!-- 7 -->
       <div class="item">
+        <img class="thumb" src="assets/thumbs/7.png" alt="Serena" loading="lazy">
         <div class="num">7</div>
         <div class="it-body">
           <p class="it-title">Serena</p>
@@ -289,6 +320,7 @@
 
       <!-- 8 -->
       <div class="item">
+        <img class="thumb" src="assets/thumbs/8.png" alt="The Awesome Adventures of Captain Spirit" loading="lazy">
         <div class="num">8</div>
         <div class="it-body">
           <p class="it-title">The Awesome Adventures of Captain Spirit</p>
@@ -300,6 +332,7 @@
 
       <!-- 9 -->
       <div class="item">
+        <img class="thumb" src="assets/thumbs/9.png" alt="AX:EL - Air XenoDawn" loading="lazy">
         <div class="num">9</div>
         <div class="it-body">
           <p class="it-title">AX:EL - Air XenoDawn</p>
@@ -311,6 +344,7 @@
 
       <!-- 10 -->
       <div class="item">
+        <img class="thumb" src="assets/thumbs/10.png" alt="Artifact" loading="lazy">
         <div class="num">10</div>
         <div class="it-body">
           <p class="it-title">Artifact</p>
@@ -322,6 +356,7 @@
 
       <!-- 11 -->
       <div class="item">
+        <img class="thumb" src="assets/thumbs/11.png" alt="Artifact Foundry" loading="lazy">
         <div class="num">11</div>
         <div class="it-body">
           <p class="it-title">Artifact Foundry</p>
@@ -333,6 +368,7 @@
 
       <!-- 12 -->
       <div class="item">
+        <img class="thumb" src="assets/thumbs/12.png" alt="POSTAL" loading="lazy">
         <div class="num">12</div>
         <div class="it-body">
           <p class="it-title">POSTAL</p>
@@ -344,6 +380,7 @@
 
       <!-- 13 -->
       <div class="item">
+        <img class="thumb" src="assets/thumbs/13.png" alt="Capcom Arcade Stadium" loading="lazy">
         <div class="num">13</div>
         <div class="it-body">
           <p class="it-title">Capcom Arcade Stadium</p>
@@ -355,6 +392,7 @@
 
       <!-- 14 -->
       <div class="item">
+        <img class="thumb" src="assets/thumbs/14.png" alt="Life is Strange 2" loading="lazy">
         <div class="num">14</div>
         <div class="it-body">
           <p class="it-title">Life is Strange 2</p>
@@ -366,6 +404,7 @@
 
       <!-- 15 -->
       <div class="item">
+        <img class="thumb" src="assets/thumbs/15.png" alt="Capcom Arcade 2nd Stadium" loading="lazy">
         <div class="num">15</div>
         <div class="it-body">
           <p class="it-title">Capcom Arcade 2nd Stadium</p>
@@ -377,6 +416,7 @@
 
       <!-- 16 -->
       <div class="item">
+        <img class="thumb" src="assets/thumbs/16.png" alt="Tell Me Why" loading="lazy">
         <div class="num">16</div>
         <div class="it-body">
           <p class="it-title">Tell Me Why</p>
@@ -385,6 +425,7 @@
           </a>
         </div>
       </div>
+
     </main>
 
     <div class="footer">
@@ -422,5 +463,6 @@
   </script>
 </body>
 </html>
+
 
 
