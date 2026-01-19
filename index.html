@@ -85,14 +85,17 @@
       .hero-head{grid-template-columns:1fr}
     }
 
-    .hero-img-card{
-      background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
-      border:1px solid var(--border);
-      border-radius:16px;
-      padding:10px;
-      box-shadow: var(--shadow);
-      max-width: 320px;
-      justify-self: end;
+    .hero-img-card img{
+  width:100%;
+  height:auto;
+  display:block;
+  border-radius:12px;
+  border:1px solid rgba(255,255,255,.10);
+  object-fit: contain;
+  background: rgba(0,0,0,.18);
+  box-shadow: 0 10px 25px rgba(0,0,0,.25);
+}
+
     }
     @media (max-width:900px){
       .hero-img-card{max-width: 100%; justify-self: stretch;}
