@@ -38,6 +38,20 @@
       overflow:hidden;
     }
 
+    .hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background: linear-gradient(
+    180deg,
+    rgba(11,15,23,.85),
+    rgba(11,15,23,.65),
+    rgba(11,15,23,.85)
+  );
+  z-index:0;
+}
+
+
     .topbar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;justify-content:space-between}
     .badge{
       display:inline-flex;gap:10px;align-items:center;
