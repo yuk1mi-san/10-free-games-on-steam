@@ -216,6 +216,24 @@
     body.lang-en [data-lang="en"]{display:inline}
     body.lang-ru div[data-lang="ru"]{display:block}
     body.lang-en div[data-lang="en"]{display:block}
+
+    /* bullet list (used in Purchased Product card) */
+    .bullet{
+      margin:10px 0 0;
+      padding:0;
+      list-style:none;
+      display:grid;
+      gap:8px;
+      color:var(--muted);
+    }
+    .bullet li{
+      display:flex;
+      gap:10px;
+      align-items:flex-start;
+    }
+    .bullet .ic{flex:0 0 auto; width:18px; text-align:center; opacity:.95}
+    .bullet b{color:var(--text)}
+    .card h2{line-height:1.2}
   </style>
 </head>
 
@@ -284,27 +302,26 @@
 
         <!-- REPLACED: product text instead of tips -->
         <aside class="card">
-  <div data-lang="ru">
-    <h2>✨ Купленный товар</h2>
-    <ul class="bullet">
-      <li><span class="ic">📋</span><span>Это список из <b>16 игр</b></span></li>
-      <li><span class="ic">🖤</span><span>Бесплатные игры, которые могут дать <b>+1</b> к библиотеке профиля Steam</span></li>
-      <li><span class="ic">🎀</span><span>Работает для значка профиля Steam (значок количества игр)</span></li>
-      <li><span class="ic">📋</span><span>Сделал <b>Yukimi2208</b> / <b>FunPay</b></span></li>
-    </ul>
-  </div>
+          <div data-lang="ru">
+            <h2>✨ Купленный товар</h2>
+            <ul class="bullet">
+              <li><span class="ic">📋</span><span>Это список из <b>16 игр</b></span></li>
+              <li><span class="ic">🖤</span><span>Бесплатные игры, которые могут дать <b>+1</b> к библиотеке профиля Steam</span></li>
+              <li><span class="ic">🎀</span><span>Работает для значка профиля Steam (значок количества игр)</span></li>
+              <li><span class="ic">📋</span><span>Сделал <b>Yukimi2208</b> / <b>FunPay</b></span></li>
+            </ul>
+          </div>
 
-  <div data-lang="en">
-    <h2>✨ Purchased Product</h2>
-    <ul class="bullet">
-      <li><span class="ic">📋</span><span>This is a list of <b>16 items</b></span></li>
-      <li><span class="ic">🖤</span><span>Free Steam items that may add <b>+1</b> to your profile game count</span></li>
-      <li><span class="ic">🎀</span><span>Works for the Steam profile “Games” badge (game count)</span></li>
-      <li><span class="ic">📋</span><span>List created by <b>Yukimi2208</b> / <b>FunPay</b></span></li>
-    </ul>
-  </div>
-</aside>
-
+          <div data-lang="en">
+            <h2>✨ Purchased Product</h2>
+            <ul class="bullet">
+              <li><span class="ic">📋</span><span>This is a list of <b>16 items</b></span></li>
+              <li><span class="ic">🖤</span><span>Free Steam items that may add <b>+1</b> to your profile game count</span></li>
+              <li><span class="ic">🎀</span><span>Works for the Steam profile “Games” badge (game count)</span></li>
+              <li><span class="ic">📋</span><span>List created by <b>Yukimi2208</b> / <b>FunPay</b></span></li>
+            </ul>
+          </div>
+        </aside>
       </div>
     </header>
 
