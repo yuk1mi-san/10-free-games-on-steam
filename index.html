@@ -92,14 +92,16 @@
 
     .hero-img-card img{
   width:100%;
-  height:auto;
+  height:140px;          /* размер НЕ меняем */
   display:block;
   border-radius:12px;
   border:1px solid rgba(255,255,255,.10);
-  object-fit: contain;
-  background: rgba(0,0,0,.18);
+  object-fit: contain;  /* ВАЖНО */
+  object-position: center;
+  background: rgba(0,0,0,.35); /* чтобы не было пустоты */
   box-shadow: 0 10px 25px rgba(0,0,0,.25);
 }
+
 
     }
     @media (max-width:900px){
