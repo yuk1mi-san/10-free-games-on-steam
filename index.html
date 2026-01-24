@@ -6,10 +6,9 @@
   <title>✨ Steam +1 Games List</title>
   <meta name="description" content="RU/EN: список игр/страниц Steam для увеличения счётчика игр в профиле." />
   <!-- Favicon -->
-<link rel="icon" type="image/png" href="assets/favicon.jpg">
-<link rel="apple-touch-icon" href="assets/favicon.jpg">
-<meta name="theme-color" content="#0b0f17">
-
+  <link rel="icon" type="image/png" href="assets/favicon.jpg">
+  <link rel="apple-touch-icon" href="assets/favicon.jpg">
+  <meta name="theme-color" content="#0b0f17">
 
   <style>
     :root{
@@ -91,24 +90,19 @@
     }
 
     .hero-img-card img{
-  width:100%;
-  height:140px;          /* размер НЕ меняем */
-  display:block;
-  border-radius:12px;
-  border:1px solid rgba(255,255,255,.10);
-  object-fit: contain;  /* ВАЖНО */
-  object-position: center;
-  background: rgba(0,0,0,.35); /* чтобы не было пустоты */
-  box-shadow: 0 10px 25px rgba(0,0,0,.25);
-}
-
-
+      width:100%;
+      height:140px;          /* размер НЕ меняем */
+      display:block;
+      border-radius:12px;
+      border:1px solid rgba(255,255,255,.10);
+      object-fit: contain;  /* ВАЖНО */
+      object-position: center;
+      background: rgba(0,0,0,.35); /* чтобы не было пустоты */
+      box-shadow: 0 10px 25px rgba(0,0,0,.25);
     }
     @media (max-width:900px){
       .hero-img-card{max-width: 100%; justify-self: stretch;}
     }
-
-
 
     .hero-img-caption{
       margin-top:8px;
@@ -232,6 +226,53 @@
       flex:0 0 auto;
     }
 
+    /* Extra links block: columns with 4 items each */
+.extra-links-card{
+  margin-top: 16px;
+}
+
+.extra-links-card .links-grid{
+  margin: 10px 0 0;
+  padding: 0;
+  list-style: none;
+
+  display: grid;
+
+  /* 4 items per column */
+  grid-template-rows: repeat(4, auto);
+  grid-auto-flow: column;
+
+  /* расстояние между элементами (по вертикали и между колонками) */
+  gap: 10px 32px;
+}
+
+.extra-links-card .links-grid a{
+  color: var(--accent2);
+  text-decoration: none;
+  font-weight: 800;
+  border-bottom: 1px dashed rgba(34,211,238,.55);
+  padding-bottom: 2px;
+}
+
+.extra-links-card .links-grid a:hover{
+  opacity: .9;
+}
+
+/* адаптив: на узких экранах делаем меньше колонок */
+@media (max-width: 700px){
+  .extra-links-card .links-grid{
+    grid-template-rows: repeat(7, auto); /* чтобы было меньше колонок */
+    gap: 10px 22px;
+  }
+}
+@media (max-width: 420px){
+  .extra-links-card .links-grid{
+    grid-template-rows: none;
+    grid-auto-flow: row;  /* обычный список */
+  }
+}
+
+
     .it-body{flex:1; min-width:0}
     .it-title{
       margin:0;
@@ -301,6 +342,25 @@
     body.lang-en [data-lang="en"]{display:inline}
     body.lang-ru div[data-lang="ru"]{display:block}
     body.lang-en div[data-lang="en"]{display:block}
+
+    /* EXTRA LINKS BLOCK */
+    .extra-links{
+      margin-top:18px;
+    }
+    .extra-links .links{
+      margin-top:10px;
+      display:grid;
+      gap:10px;
+    }
+    .extra-links a{
+      color: var(--accent2);
+      text-decoration:none;
+      border-bottom:1px dashed rgba(34,211,238,.55);
+      padding-bottom:2px;
+      font-weight:800;
+      width: fit-content;
+    }
+    .extra-links a:hover{opacity:.9}
   </style>
 </head>
 
@@ -433,12 +493,12 @@
           </div>
         </section>
 
-        <!-- RIGHT CARD: PURCHASED PRODUCT -->
+        <!-- RIGHT CARD: INFO -->
         <aside class="card">
           <div data-lang="ru">
             <h2>✨ Внутрености</h2>
             <ul class="bullet">
-              <li><span class="ic">📋</span><span>Это список из <b>16 игр</b></span></li>
+              <li><span class="ic">📋</span><span>Это список из <b>17 игр</b></span></li>
               <li><span class="ic">🖤</span><span>Бесплатные игры, которые могут дать <b>+1</b> к библиотеке профиля Steam</span></li>
               <li><span class="ic">🎀</span><span>Работает для значка профиля Steam (значок количества игр)</span></li>
               <li>
@@ -456,7 +516,7 @@
           <div data-lang="en">
             <h2>✨ What we have here</h2>
             <ul class="bullet">
-              <li><span class="ic">📋</span><span>This is a list of <b>16 items</b></span></li>
+              <li><span class="ic">📋</span><span>This is a list of <b>17 items</b></span></li>
               <li><span class="ic">🖤</span><span>Free Steam items that may add <b>+1</b> to your profile game count</span></li>
               <li><span class="ic">🎀</span><span>Works for the Steam profile “Games” badge (game count)</span></li>
               <li>
@@ -554,9 +614,108 @@
       <div class="item"><div class="row"><div class="num">16</div><div class="it-body"><p class="it-title">Tell Me Why</p>
         <a class="it-link" href="https://store.steampowered.com/app/1180660/Tell_Me_Why/" target="_blank" rel="noopener"><span data-lang="ru">Открыть в Steam</span><span data-lang="en">Open on Steam</span></a>
       </div></div><div class="shot-wrap"><img class="shot" src="assets/thumbs/16.png" alt="Tell Me Why screenshot" loading="lazy"></div></div>
+
+      <!-- 17 -->
+      <div class="item">
+  <div class="row">
+    <div class="num">17</div>
+    <div class="it-body">
+      <p class="it-title">Zynga Poker - Texas Holdem</p>
+      <a class="it-link" href="https://store.steampowered.com/app/3635220/Zynga_Poker___Texas_Holdem/" target="_blank" rel="noopener">
+        <span data-lang="ru">Открыть в Steam</span>
+        <span data-lang="en">Open on Steam</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+
     </main>
 
-     <div class="footer">
+
+    <section class="card bottom-note">
+  <div data-lang="ru">
+    <h3 class="center-title">ℹ️ Дополнительно</h3>
+    <div class="note-lines">
+
+      <div class="note-line">
+        <span class="ic">🌐</span>
+        <span>
+          Перейдите на сайт 
+<a href="https://store.steampowered.com/account/licenses/" target="_blank" rel="noopener">
+  https://store.steampowered.com/account/licenses/
+</a> ->
+          
+        </span>
+      </div>
+
+      <div class="note-line">
+        <span class="ic">⚠️</span>
+        <span>
+          Нажмите F12 -> Передите в "Console" -> 
+        </span>
+      </div>
+
+      <div class="note-line">
+        <span class="ic">🧩</span>
+        <span>
+          Возможно потребуется прописать вручную "allow pasting", в случае если пытаетесь вставить и высвечивается желтое уведомление ->
+        </span>
+      </div>
+
+      <div class="note-line">
+        <span class="ic">📌</span>
+        <span>
+          AddFreeLicense([13261, 150442, 153186, 157010, 222994, 232574, 253461, 264193, 272196, 290964, 292303, 299795, 32032, 33694, 36561, 420511, 496891, 534367, 555169, 555176, 59373, 88162])
+        </span>
+      </div>
+
+    </div>
+  </div>
+
+  <div data-lang="en">
+    <h3 class="center-title">ℹ️ Additional info</h3>
+    <div class="note-lines">
+
+      <div class="note-line">
+        <span class="ic">🌐</span>
+        <span>
+          Go to the website Go to the website 
+<a href="https://store.steampowered.com/account/licenses/" target="_blank" rel="noopener">
+  https://store.steampowered.com/account/licenses/
+</a> ->
+        </span>
+      </div>
+
+      <div class="note-line">
+        <span class="ic">⚠️</span>
+        <span>
+         Press F12 -> Go to the "Console" ->
+        </span>
+      </div>
+
+      <div class="note-line">
+        <span class="ic">🧩</span>
+        <span>
+          You may need to manually enable 'allow pasting' if you try to paste and a yellow notification appears ->
+        </span>
+      </div>
+
+      <div class="note-line">
+        <span class="ic">📌</span>
+        <span>
+          AddFreeLicense([13261, 150442, 153186, 157010, 222994, 232574, 253461, 264193, 272196, 290964, 292303, 299795, 32032, 33694, 36561, 420511, 496891, 534367, 555169, 555176, 59373, 88162])
+        </span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+
+    <div class="footer">
       <span data-lang="ru">✨P.S. Надеюсь, большинство игр было успешно активировано и вы удовлетворенны результатом 😊</span>
       <span data-lang="en">✨P.S. I hope that most of the games were successfully activated and that you are happy with the result 😊</span>
     </div>
@@ -570,7 +729,7 @@
           <div class="note-line"><span class="ic">❗</span><span>Если у вас в Steam установлен регион <b>Россия</b> (рубли), то часть игр может быть недоступна. Поэтому я <b>не рекомендую</b> этот товар, если у вас выбран этот регион в стиме ❗</span></div>
 
           <div class="note-line"><span class="ic">✨</span><span><b>Актуальный список игр</b></span></div>
-          <div class="note-line"><span class="ic">🎀</span><span>Список состоит из 16 игр, которые вы сможете активировать для значка стим. Если есть вопросы — пишите ^^</span></div>
+          <div class="note-line"><span class="ic">🎀</span><span>Список состоит из 17 игр, которые вы сможете активировать для значка стим. Если есть вопросы — пишите ^^</span></div>
 
           <div class="note-line">
             <span class="ic">📌</span>
@@ -584,6 +743,8 @@
 
           <div class="note-line"><span class="ic">💤</span><span>Обычно я доступен с 16:00 до 23:00 💤</span></div>
           <div class="note-line"><span class="ic">💤</span><span>Если вы пишете в другое время, то, скорее всего, я отвечу позже. 💤</span></div>
+
+
         </div>
       </div>
 
@@ -642,7 +803,6 @@
   </script>
 </body>
 </html>
-
 
 
 
